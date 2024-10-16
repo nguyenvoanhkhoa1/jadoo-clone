@@ -2,13 +2,39 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function Home() {
+  const CATEGORIES = [
+    {
+      title: "Calculated Weather",
+      description:
+        "Built Wicket longer admire do barton vanity itself do in it.",
+      imgLink: "/assets/homepage/calculated-weather.svg",
+    },
+    {
+      title: "Best Flights",
+      description:
+        "Engrossed listening. Park gate sell they west hard for the.",
+      imgLink: "/assets/homepage/best-flights.svg",
+    },
+    {
+      title: "Local Events",
+      description:
+        "Barton vanity itself do in it. Prefferd to men it engrossed listening.",
+      imgLink: "/assets/homepage/local-events.png",
+    },
+    {
+      title: "Customization",
+      description:
+        "BWe deliver outsourced aviation services for military customers",
+      imgLink: "/assets/homepage/customization.svg",
+    },
+  ]
   return (
     <>
       <header className="fixed w-full py-9">
         <div className="section-container flex w-full items-center justify-between">
           <Link href={"/"} className="h-fit w-[100px]">
             <Image
-              src={"assets/jadoo-travel-logo.svg"}
+              src={"/assets/jadoo-travel-logo.svg"}
               alt={""}
               width={115}
               height={34}
@@ -65,7 +91,7 @@ export default function Home() {
                 </button>
                 <button className="flex items-center gap-5 text-[17px] font-medium text-[#686D77]">
                   <Image
-                    src={"assets/homepage/play-button.svg"}
+                    src={"/assets/homepage/play-button.svg"}
                     alt={""}
                     width={52}
                     height={52}
@@ -83,6 +109,27 @@ export default function Home() {
                 height={500}
                 className="h-auto w-full"
               />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="section-container flex flex-col items-center">
+            <div className="">CATEGORY</div>
+            <h2 className="">We Offer Best Services</h2>
+            <div className="grid grid-cols-4 gap-14">
+              {CATEGORIES.map((category, index) => (
+                <div key={index} className="flex flex-col items-center">
+                  <Image
+                    src={category.imgLink}
+                    alt=""
+                    width={90}
+                    height={90}
+                    className="h-[90px] w-auto"
+                  />
+                  <div className="">{category.title}</div>
+                  <p className="">{category.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
