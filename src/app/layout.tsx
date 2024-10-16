@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${volkhov.variable}`}>
       <body className={`${poppins.className} min-h-screen antialiased`}>
         {children}
       </body>

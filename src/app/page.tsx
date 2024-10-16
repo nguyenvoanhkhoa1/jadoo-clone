@@ -14,7 +14,7 @@ export default function Home() {
               height={34}
             />
           </Link>
-          <div className="flex items-center">
+          <div className="flex items-center gap-4">
             <nav className="flex gap-4">
               {["Destinations", "Hotels", "Flights", "Bookings", "Login"].map(
                 (item) => (
@@ -40,34 +40,50 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <main className="">
-        <div className="section-container flex pb-12 pt-[105px]">
-          <div>
-            <div>Best destinations around the world</div>
-            <h1>Travel, enjoy and live a new and full life</h1>
-            <p>
-              Built Wicket longer admire do barton vanity itself do in it.
-              Preferred to sportsmen it engrossed listening. Park gate sell they
-              west hard for the.
-            </p>
-            <div>
-              <button>Find out more</button>
-              <button>
-                <img
-                  src="https://cdn.prod.website-files.com/6170700f1a1db6b3a0ac16ed/617938d0a54d313ce148aa83_play-button.svg"
-                  loading="lazy"
-                  alt="Play button"
-                />
-                Play Demo
-              </button>
+      <main>
+        <div className="bg-[url('/assets/homepage/purple-blur.png'),_url('/assets/homepage/yellow-side.svg')] bg-[position:-58%_-135%,100%_-5%] bg-no-repeat">
+          <div className="section-container grid grid-cols-2 gap-4 pb-12 pt-[105px]">
+            <div className="flex flex-col justify-center">
+              <div className="text-xl font-bold uppercase text-[#DF6951]">
+                Best destinations around the world
+              </div>
+              <h1 className="font-volkhov mt-6 text-[84px] font-bold leading-[89px] text-[#181E4B]">
+                Travel,{" "}
+                <span className="bg-[url('/assets/homepage/orange-undermark.svg')] bg-[50%_84%] bg-no-repeat">
+                  enjoy
+                </span>{" "}
+                and live a new and full life
+              </h1>
+              <p className="mt-[30px] max-w-[472px] font-medium leading-[30px] text-[#5E6282]">
+                Built Wicket longer admire do barton vanity itself do in it.
+                Preferred to sportsmen it engrossed listening. Park gate sell
+                they west hard for the.
+              </p>
+              <div className="mt-[34px] flex gap-11">
+                <button className="h-[60px] w-[170px] rounded-[10px] bg-[#F1A501] text-lg font-medium text-white">
+                  Find out more
+                </button>
+                <button className="flex items-center gap-5 text-[17px] font-medium text-[#686D77]">
+                  <Image
+                    src={"assets/homepage/play-button.svg"}
+                    alt={""}
+                    width={52}
+                    height={52}
+                    className="drop-shadow-[0_15px_15px_rgba(223,105,81,0.5)]"
+                  />
+                  Play Demo
+                </button>
+              </div>
             </div>
-          </div>
-          <div className="">
-            <img
-              src="https://cdn.prod.website-files.com/6170700f1a1db6b3a0ac16ed/617938cf58e87917dc7a61ec_woman-planes.png"
-              loading="lazy"
-              alt="Traveling lady with luggage"
-            />
+            <div className="">
+              <Image
+                src={"/assets/homepage/woman-planes.png"}
+                alt="Traveling lady with luggage"
+                width={500}
+                height={500}
+                className="h-auto w-full"
+              />
+            </div>
           </div>
         </div>
       </main>
