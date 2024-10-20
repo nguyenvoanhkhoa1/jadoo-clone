@@ -24,13 +24,34 @@ export default function Home() {
     {
       title: "Customization",
       description:
-        "BWe deliver outsourced aviation services for military customers",
+        "We deliver outsourced aviation services for military customers",
       imgLink: "/assets/homepage/customization.svg",
     },
   ]
+  const TOP_SELLING = [
+    {
+      location: "Rome, Italty",
+      price: "$5,42k",
+      duration: "10 Days Trip",
+      thumb: "/assets/homepage/rome.png",
+    },
+    {
+      location: "London, UK",
+      price: "$4.2k",
+      duration: "12 Days Trip",
+      thumb: "/assets/homepage/london.png",
+    },
+    {
+      location: "Full Europe",
+      price: "$15k",
+      duration: "28 Days Trip",
+      thumb: "/assets/homepage/europe.png",
+    },
+  ]
+
   return (
     <>
-      <header className="fixed w-full py-9">
+      <header className="fixed w-full bg-white py-9">
         <div className="section-container flex w-full items-center justify-between">
           <Link href={"/"} className="h-fit w-[100px]">
             <Image
@@ -73,7 +94,7 @@ export default function Home() {
               <div className="text-xl font-bold uppercase text-[#DF6951]">
                 Best destinations around the world
               </div>
-              <h1 className="font-volkhov mt-6 text-[84px] font-bold leading-[89px] text-[#181E4B]">
+              <h1 className="mt-6 font-volkhov text-[84px] font-bold leading-[89px] text-[#181E4B]">
                 Travel,{" "}
                 <span className="bg-[url('/assets/homepage/orange-undermark.svg')] bg-[50%_84%] bg-no-repeat">
                   enjoy
@@ -113,21 +134,66 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <div className="section-container flex flex-col items-center">
-            <div className="">CATEGORY</div>
-            <h2 className="">We Offer Best Services</h2>
-            <div className="grid grid-cols-4 gap-14">
+          <div className="section-container flex flex-col items-center bg-[url('/assets/homepage/plus-graphics-1.svg')] bg-right-top bg-no-repeat pb-20 pt-12">
+            <div className="text-lg font-semibold text-[#5E6282]">CATEGORY</div>
+            <h2 className="mt-2.5 font-volkhov text-[50px] font-bold text-[#14183E]">
+              We Offer Best Services
+            </h2>
+            <div className="mt-16 grid grid-cols-4 gap-9">
               {CATEGORIES.map((category, index) => (
-                <div key={index} className="flex flex-col items-center">
+                <div key={index} className="group relative">
+                  <div className="flex flex-col items-center rounded-[36px] bg-white px-9 py-11 text-center transition-shadow duration-300 ease-linear hover:shadow-lg">
+                    <Image
+                      src={category.imgLink}
+                      alt=""
+                      width={90}
+                      height={90}
+                      className="h-[90px] w-auto"
+                    />
+                    <div className="font-openSans mt-7 whitespace-nowrap text-xl font-semibold text-[#1E1D4C]">
+                      {category.title}
+                    </div>
+                    <p className="mt-4 font-medium text-[#5E6282]">
+                      {category.description}
+                    </p>
+                  </div>
                   <Image
-                    src={category.imgLink}
+                    src={"/assets/homepage/category-active.svg"}
                     alt=""
-                    width={90}
-                    height={90}
-                    className="h-[90px] w-auto"
+                    width={100}
+                    height={100}
+                    className="absolute bottom-0 left-0 -z-10 size-auto opacity-0 transition-all duration-300 ease-linear group-hover:-bottom-9 group-hover:-left-9 group-hover:opacity-100"
                   />
-                  <div className="">{category.title}</div>
-                  <p className="">{category.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="section-container flex flex-col items-center pb-20 pt-16">
+            <div className="text-lg font-semibold text-[#5E6282]">
+              Top Selling
+            </div>
+            <h2 className="mt-2.5 font-volkhov text-[50px] font-bold text-[#14183E]">
+              Top Destinations
+            </h2>
+            <div className="mt-16 grid w-full grid-cols-3 gap-9">
+              {TOP_SELLING.map((item, index) => (
+                <div key={index} className="">
+                  <Image
+                    src={item.thumb}
+                    alt=""
+                    width={400}
+                    height={500}
+                    className="h-80 w-full bg-center object-contain"
+                  />
+                  <div>
+                    <div>
+                      <span>{item.location}</span>
+                      <span>{item.price}</span>
+                    </div>
+                    <span>{item.duration}</span>
+                  </div>
                 </div>
               ))}
             </div>

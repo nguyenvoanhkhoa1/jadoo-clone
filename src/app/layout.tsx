@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 
 import "./globals.css"
 
-import { Poppins, Volkhov } from "next/font/google"
+import { Open_Sans, Poppins, Volkhov } from "next/font/google"
 
 const poppins = Poppins({
   weight: ["400", "500", "700", "900"],
@@ -13,6 +13,12 @@ const volkhov = Volkhov({
   weight: ["400", "700"],
   subsets: ["latin"],
   variable: "--font-volkhov",
+})
+
+const openSans = Open_Sans({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-open-sans",
 })
 
 export const metadata: Metadata = {
@@ -26,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${volkhov.variable}`}>
+    <html lang="en" className={`${volkhov.variable} ${openSans.variable}`}>
       <body className={`${poppins.className} min-h-screen antialiased`}>
         {children}
       </body>
