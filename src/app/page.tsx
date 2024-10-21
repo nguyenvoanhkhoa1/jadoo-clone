@@ -165,7 +165,7 @@ export default function Home() {
             <div className="mt-16 grid grid-cols-4 gap-9">
               {CATEGORIES.map((category, index) => (
                 <div key={index} className="group relative">
-                  <div className="flex flex-col items-center rounded-[36px] bg-white px-9 py-11 text-center transition-shadow duration-300 ease-linear hover:shadow-lg">
+                  <div className="flex flex-col items-center rounded-[36px] bg-white px-6 py-11 text-center transition-shadow duration-300 ease-linear hover:shadow-lg">
                     <Image
                       src={category.imgLink}
                       alt=""
