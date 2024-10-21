@@ -48,6 +48,29 @@ export default function Home() {
       thumb: "/assets/homepage/europe.png",
     },
   ]
+  const STEPS = [
+    {
+      title: "Choose Destination",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus. ",
+      icon: "/assets/homepage/selection.svg",
+      color: "#F0BB1F",
+    },
+    {
+      title: "Make Payment",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus. ",
+      icon: "/assets/homepage/water-sport.svg",
+      color: "#F15A2B",
+    },
+    {
+      title: "Reach Airport on Selected Date",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus. ",
+      icon: "/assets/homepage/taxi.svg",
+      color: "#006380",
+    },
+  ]
 
   return (
     <>
@@ -215,6 +238,135 @@ export default function Home() {
                 height={252}
                 className="absolute right-0 top-1/2 -z-10 -translate-y-1/2 translate-x-1/2"
               />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="section-container grid grid-cols-2 pb-12 pt-28">
+            <div>
+              <div className="text-lg font-semibold text-[#5E6282]">
+                Easy and Fast
+              </div>
+              <h2 className="mt-2.5 max-w-[520px] font-volkhov text-[50px] font-bold text-[#14183E]">
+                Book your next trip in 3 easy steps
+              </h2>
+              <div className="mt-8 flex flex-col gap-12">
+                {STEPS.map((step, index) => (
+                  <div key={index} className="flex max-w-[400px] gap-5">
+                    <div
+                      className="mt-2 flex size-12 shrink-0 items-center justify-center rounded-xl"
+                      style={{ backgroundColor: step.color }}
+                    >
+                      <Image
+                        src={step.icon}
+                        alt=""
+                        width={22}
+                        height={22}
+                        className=""
+                      />
+                    </div>
+                    <div className="text-[#5E6282]">
+                      <div className="font-bold">{step.title}</div>
+                      <p className="mt-1">{step.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative flex items-center justify-center">
+              <Image
+                src={"/assets/homepage/blue-blur.png"}
+                alt=""
+                width={500}
+                height={518}
+                className="absolute left-[20%] top-[-10%] -z-10 h-auto w-[500px]"
+              />
+              <div className="max-w-[370px] rounded-[28px] bg-white px-6 pb-8 pt-5 shadow-xl">
+                <Image
+                  src={"/assets/homepage/booking-thumb.png"}
+                  alt=""
+                  width={500}
+                  height={250}
+                  className="rounded-2xl"
+                />
+                <div className="mt-6 font-medium text-[#84829A]">
+                  <div className="text-lg tracking-wide text-[#080809]">
+                    Trip To Greece
+                  </div>
+                  <div className="mt-3">
+                    <span className="tracking-tight">14-29 June</span>
+                    <span className="ml-1 mr-3">|</span>
+                    <span className="tracking-tight">by Robbin joseph</span>
+                  </div>
+                  <div className="mt-5 flex gap-4">
+                    {[
+                      "/assets/homepage/leaf.svg",
+                      "/assets/homepage/map.svg",
+                      "/assets/homepage/send.svg",
+                    ].map((item, index) => (
+                      <button
+                        key={index}
+                        className="flex size-9 items-center justify-center rounded-full bg-[#F5F5F5]"
+                      >
+                        <Image
+                          src={item}
+                          alt=""
+                          width={14}
+                          height={14}
+                          className=""
+                        />
+                      </button>
+                    ))}
+                  </div>
+                  <div className="mt-7 flex items-end justify-between">
+                    <div className="flex items-center gap-4">
+                      <Image
+                        src={"/assets/homepage/building.svg"}
+                        alt=""
+                        width={16}
+                        height={16}
+                        className=""
+                      />
+                      <span className="tracking-tighter">24 people going</span>
+                    </div>
+                    <div className="relative flex items-center px-2">
+                      <button>
+                        <Image
+                          src={"/assets/homepage/heart.svg"}
+                          alt=""
+                          width={20}
+                          height={19}
+                          className=""
+                        />
+                      </button>
+                      <div className="absolute bottom-full left-full flex w-max -translate-x-1/2 items-start gap-3 rounded-[18px] bg-white p-5 shadow-xl">
+                        <Image
+                          src={"/assets/homepage/trip-thumb.png"}
+                          alt=""
+                          width={50}
+                          height={50}
+                          className="rounded-full"
+                        />
+                        <div className="flex flex-col font-medium">
+                          <span className="text-sm text-[#84829A]">
+                            Ongoing
+                          </span>
+                          <span className="mt-1.5 text-lg tracking-tight text-[#080809]">
+                            Trip to rome
+                          </span>
+                          <span className="mt-3.5 text-sm -tracking-wider text-[#080809]">
+                            <span className="text-[#8A79DF]">40%</span>{" "}
+                            completed
+                          </span>
+                          <div className="mt-2.5 h-[5px] w-[156px] rounded-full bg-[#F5F5F5]">
+                            <div className="h-full w-2/5 rounded-full bg-[#8A79DF]" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
