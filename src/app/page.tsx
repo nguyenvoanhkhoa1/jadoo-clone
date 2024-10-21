@@ -242,7 +242,7 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <div className="section-container grid grid-cols-2 pb-12 pt-28">
+          <div className="section-container grid grid-cols-2 py-20">
             <div>
               <div className="text-lg font-semibold text-[#5E6282]">
                 Easy and Fast
@@ -368,6 +368,19 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div>
+          <div className="section-container grid grid-cols-2 py-20">
+            <div>
+              <div className="text-lg font-semibold text-[#5E6282]">
+                Testimonials
+              </div>
+              <h2 className="mt-2.5 max-w-[520px] font-volkhov text-[50px] font-bold text-[#14183E]">
+                What people say about Us.
+              </h2>
+            </div>
+            <div className=""></div>
           </div>
         </div>
       </main>
