@@ -150,7 +150,7 @@ export default function Home() {
                       height={90}
                       className="h-[90px] w-auto"
                     />
-                    <div className="font-openSans mt-7 whitespace-nowrap text-xl font-semibold text-[#1E1D4C]">
+                    <div className="mt-7 whitespace-nowrap font-openSans text-xl font-semibold text-[#1E1D4C]">
                       {category.title}
                     </div>
                     <p className="mt-4 font-medium text-[#5E6282]">
@@ -177,22 +177,25 @@ export default function Home() {
             <h2 className="mt-2.5 font-volkhov text-[50px] font-bold text-[#14183E]">
               Top Destinations
             </h2>
-            <div className="mt-16 grid w-full grid-cols-3 gap-9">
+            <div className="relative mt-16 grid w-full grid-cols-3 gap-9">
               {TOP_SELLING.map((item, index) => (
-                <div key={index} className=" rounded-e-3xl shadow-lg">
+                <div
+                  key={index}
+                  className="overflow-hidden rounded-3xl shadow-lg"
+                >
                   <Image
                     src={item.thumb}
                     alt=""
                     width={400}
                     height={500}
-                    className="h-80 w-full bg-center object-contain"
+                    className="h-[328px] w-full overflow-hidden object-cover object-top"
                   />
-                  <div className=' px-5 pt-7 pb-10 font-medium text-[#5E6282]'>
-                    <div>
-                      <span className=" text-lg">{item.location}</span>
+                  <div className="bg-white px-5 pb-10 pt-7 font-medium text-[#5E6282]">
+                    <div className="flex items-center justify-between">
+                      <span className="text-lg">{item.location}</span>
                       <span>{item.price}</span>
                     </div>
-                    <div className="flex gap-3.5">
+                    <div className="mt-5 flex gap-3.5">
                       <Image
                         src={"/assets/homepage/location-mark.svg"}
                         alt=""
@@ -200,11 +203,18 @@ export default function Home() {
                         height={20}
                         className=""
                       />
-                      <span className="mt-5">{item.duration}</span>
+                      <span className="">{item.duration}</span>
                     </div>
                   </div>
                 </div>
               ))}
+              <Image
+                src={"/assets/homepage/decore.svg"}
+                alt=""
+                width={96}
+                height={252}
+                className="absolute right-0 top-1/2 -z-10 -translate-y-1/2 translate-x-1/2"
+              />
             </div>
           </div>
         </div>
