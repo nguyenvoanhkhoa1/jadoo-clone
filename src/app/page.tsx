@@ -179,7 +179,7 @@ export default function Home() {
             </h2>
             <div className="mt-16 grid w-full grid-cols-3 gap-9">
               {TOP_SELLING.map((item, index) => (
-                <div key={index} className="">
+                <div key={index} className=" rounded-e-3xl shadow-lg">
                   <Image
                     src={item.thumb}
                     alt=""
@@ -187,12 +187,21 @@ export default function Home() {
                     height={500}
                     className="h-80 w-full bg-center object-contain"
                   />
-                  <div>
+                  <div className=' px-5 pt-7 pb-10 font-medium text-[#5E6282]'>
                     <div>
-                      <span>{item.location}</span>
+                      <span className=" text-lg">{item.location}</span>
                       <span>{item.price}</span>
                     </div>
-                    <span>{item.duration}</span>
+                    <div className="flex gap-3.5">
+                      <Image
+                        src={"/assets/homepage/location-mark.svg"}
+                        alt=""
+                        width={20}
+                        height={20}
+                        className=""
+                      />
+                      <span className="mt-5">{item.duration}</span>
+                    </div>
                   </div>
                 </div>
               ))}
