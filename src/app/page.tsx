@@ -74,7 +74,7 @@ export default function Home() {
 
   return (
     <>
-      <header className="fixed w-full bg-white py-9">
+      <header className="fixed z-10 w-full bg-white py-9">
         <div className="section-container flex w-full items-center justify-between">
           <Link href={"/"} className="h-fit w-[100px]">
             <Image
