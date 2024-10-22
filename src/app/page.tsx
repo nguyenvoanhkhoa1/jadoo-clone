@@ -489,6 +489,13 @@ export default function Home() {
                   height={44}
                 />
               </button>
+              <Image
+                src={"assets/homepage/plus-graphics-2.svg"}
+                alt={""}
+                width={153}
+                height={166}
+                className="absolute bottom-[-70px] right-[-99px]"
+              />
             </div>
           </div>
         </div>
@@ -497,16 +504,28 @@ export default function Home() {
         <div className="section-container">
           <div className="flex justify-between">
             <div>
-              <p className="mt-5 text-[13px] font-medium text-[#5E6282]">
+              <Link
+                href={"/"}
+                className="text-[44px] font-medium text-[#181E4B]"
+              >
+                Jadoo.
+              </Link>
+              <p className="mt-5 max-w-52 text-[13px] font-medium text-[#5E6282]">
                 Book your trip in minute, get full Control for much longer.
               </p>
             </div>
             {FOOTER.map((column, index) => (
-              <div key={index} className="">
-                <div>{column.title}</div>
-                <div className="">
+              <div key={index} className="mt-5">
+                <div className="text-xl font-bold text-[#080809]">
+                  {column.title}
+                </div>
+                <div className="mt-8 flex flex-col gap-3">
                   {column.children.map((item, i) => (
-                    <Link key={i} href={item.href}>
+                    <Link
+                      key={i}
+                      href={item.href}
+                      className="text-lg font-medium text-[#5E6282]"
+                    >
                       {item.label}
                     </Link>
                   ))}
