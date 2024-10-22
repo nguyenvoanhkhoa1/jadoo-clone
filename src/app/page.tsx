@@ -1,9 +1,17 @@
 "use client"
 
+import { useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { useClickAway, useLockBodyScroll } from "react-use"
 
 import useScrollPosition from "@/hooks/useScrollStatus"
+
+enum Language {
+  EN = "EN",
+  VI = "VI",
+}
+const languageOptions = Object.values(Language)
 
 export default function Home() {
   const CATEGORIES = [
@@ -129,6 +137,13 @@ export default function Home() {
     },
   ]
   const { isAtTop, isAtBottom, scrollDirection } = useScrollPosition()
+  const [language, setLanguage] = useState<Language>(Language.EN)
+  const [isOpenLangSelect, setIsOpenLangSelect] = useState(false)
+  const langSelectRef = useRef(null)
+  useClickAway(langSelectRef, () => {
+    setIsOpenLangSelect(false)
+  })
+  useLockBodyScroll(isOpenLangSelect)
 
   return (
     <>
@@ -161,12 +176,42 @@ export default function Home() {
             <button className="h-10 w-[102px] rounded-md border border-solid border-[#212832] text-[17px] font-medium text-[#212832] transition-colors duration-300 ease-in-out hover:bg-[#212832] hover:text-white">
               Sign up
             </button>
-            <Link
-              href={""}
-              className="p-5 text-[17px] font-medium text-[#212832] transition-colors duration-300 ease-in-out hover:text-[#F1A501]"
-            >
-              EN
-            </Link>
+            <div className="relative" ref={langSelectRef}>
+              <button
+                className="group flex items-center gap-1.5 p-3 text-[17px] font-medium text-[#212832] transition-colors duration-300 ease-in-out hover:text-[#F1A501]"
+                onClick={() => setIsOpenLangSelect(true)}
+              >
+                <span className="w-6">{language}</span>
+                <svg
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="stroke-[#212832] transition-colors duration-300 ease-in-out group-hover:stroke-[#F1A501]"
+                >
+                  <path d="M0.5 0.5L5 5L9.5 0.5" />
+                </svg>
+              </button>
+              <div
+                className={`absolute right-0 w-full space-y-1 rounded-md bg-white p-1 drop-shadow-lg transition-all duration-300 ease-in-out ${isOpenLangSelect ? "pointer-events-auto top-full opacity-100" : "pointer-events-none top-1/2 opacity-0"}`}
+              >
+                {languageOptions.map((lang) => (
+                  <button
+                    key={lang}
+                    onClick={() => {
+                      setLanguage(lang)
+                      setIsOpenLangSelect(false)
+                    }}
+                    className={`w-full rounded-md bg-white px-3 py-1 text-center transition-colors duration-300 ease-out hover:bg-slate-100 ${
+                      lang === language ? "bg-slate-100" : ""
+                    }`}
+                  >
+                    {lang}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </header>
