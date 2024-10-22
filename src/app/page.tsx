@@ -383,6 +383,21 @@ export default function Home() {
             <div className=""></div>
           </div>
         </div>
+        <div>
+          <div className="section-container py-36 flex justify-between">
+            {['axon', 'jetstar', 'expedia', 'quantas', 'alitalia'].map((item, index) =>
+              <div key={index} className=" w-60 h-24 flex items-center justify-center rounded-xl bg-white hover:shadow-lg">
+                <Image
+                  src={`/assets/homepage/logo-${item}.png`}
+                  alt=""
+                  width={150}
+                  height={50}
+                  className=" w-auto h-auto"
+                />
+              </div>
+            )}
+          </div>
+        </div>
       </main>
     </>
   )
