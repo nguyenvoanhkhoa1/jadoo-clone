@@ -15,6 +15,7 @@ const config: Config = {
       fontFamily: {
         volkhov: ["var(--font-volkhov)"],
         openSans: ["var(--font-open-sans)"],
+        montserrat: ["var(--font-montserrat)"],
       },
     },
   },

@@ -437,12 +437,12 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <div className="section-container flex justify-between py-36">
+          <div className="section-container flex justify-between py-20">
             {["axon", "jetstar", "expedia", "qantas", "alitalia"].map(
               (item, index) => (
                 <div
                   key={index}
-                  className="flex h-24 w-60 items-center justify-center rounded-xl bg-white hover:shadow-lg"
+                  className="flex h-20 cursor-pointer items-center justify-center rounded-xl bg-white px-10 grayscale transition-all duration-300 ease-in-out hover:scale-125 hover:shadow-lg hover:grayscale-0"
                 >
                   <Image
                     src={`/assets/homepage/logo-${item}.png`}
@@ -457,18 +457,38 @@ export default function Home() {
           </div>
         </div>
         <div className="">
-          <div className="section-container py-36">
-            <div className="flex flex-col items-center rounded-[20px] rounded-ss-[128px] bg-[#DFD7F9]/20 py-40">
+          <div className="section-container py-20">
+            <div className="relative flex flex-col items-center rounded-[20px] rounded-ss-[128px] bg-[#DFD7F9]/20 bg-[url('/assets/homepage/mask-1.svg'),_url('/assets/homepage/mask-2.svg')] bg-[position:-15%_100%,100%_0%] bg-no-repeat py-20">
               <p className="text-center text-[33px] font-semibold text-[#5E6282]">
                 Subscribe to get information, latest news and other interesting
                 offers about Jadoo
               </p>
               <div className="mt-[74px] flex gap-6">
-                <input placeholder="Your email" />
+                <div className="relative">
+                  <Image
+                    src={"assets/homepage/envelop.svg"}
+                    alt={""}
+                    width={21}
+                    height={18}
+                    className="absolute left-6 top-1/2 -translate-y-1/2"
+                  />
+                  <input
+                    className="font-montserrat h-[68px] w-[420px] rounded-[10px] p-6 ps-16 outline-none transition-all duration-300 ease-in-out placeholder:text-[#39425D] focus:outline-none focus:ring"
+                    placeholder="Your email"
+                  />
+                </div>
                 <button className="h-[68px] w-44 rounded-[10px] bg-gradient-to-b from-[#FF946D] to-[#FF7D68] font-openSans text-[17px] font-semibold text-white">
                   Subscribe
                 </button>
               </div>
+              <button className="absolute right-0 top-0 flex size-[70px] -translate-y-1/4 translate-x-1/4 items-center justify-center rounded-full bg-gradient-to-b from-[#747DEF] to-[#5E3BE1]">
+                <Image
+                  src={"/assets/homepage/send-1.svg"}
+                  alt={""}
+                  width={46}
+                  height={44}
+                />
+              </button>
             </div>
           </div>
         </div>

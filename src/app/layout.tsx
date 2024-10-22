@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 
 import "./globals.css"
 
-import { Open_Sans, Poppins, Volkhov } from "next/font/google"
+import { Montserrat, Open_Sans, Poppins, Volkhov } from "next/font/google"
 
 const poppins = Poppins({
   weight: ["400", "500", "700", "900"],
@@ -20,6 +20,11 @@ const openSans = Open_Sans({
   subsets: ["latin"],
   variable: "--font-open-sans",
 })
+const montserrat = Montserrat({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -32,7 +37,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${volkhov.variable} ${openSans.variable}`}>
+    <html
+      lang="en"
+      className={`${volkhov.variable} ${openSans.variable} ${montserrat.variable}`}
+    >
       <body className={`${poppins.className} min-h-screen antialiased`}>
         {children}
       </body>
