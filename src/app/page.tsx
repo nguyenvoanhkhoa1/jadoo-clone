@@ -401,12 +401,12 @@ export default function Home() {
         <div className="">
           <div className="section-container py-36">
             <div className="flex flex-col items-center py-40 rounded-[20px] rounded-ss-[128px] bg-[#DFD7F9]">
-              <p className=" font-semibold text-[33px] text-[#5E6282]">
+              <p className=" font-semibold text-[33px] text-[#5E6282] text-center">
                 Subscribe to get information, latest news and other interesting offers about Jadoo
               </p>
               <div className="flex gap-6 mt-[74px]">
                 <input placeholder="Your email"/>
-                <button className=' rounded-[10px] h-[68px] w-44 font-semibold font-openSans text-[17px] text-white'>Subscribe</button>
+                <button className=' rounded-[10px] h-[68px] w-44 font-semibold font-openSans text-[17px] text-white bg-gradient-to-b from-[#FF946D] to-[#FF7D68]'>Subscribe</button>
               </div>
             </div>
           </div>
