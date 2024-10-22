@@ -71,6 +71,59 @@ export default function Home() {
       color: "#006380",
     },
   ]
+  const FOOTER = [
+    {
+      title: "Company",
+      children: [
+        {
+          label: "About",
+          href: '#',
+        },
+        {
+          label: "Careers",
+          href: '#',
+        },
+        {
+          label: "Mobile",
+          href: '#',
+        },
+      ]
+    },
+    {
+      title: "Contact",
+      children: [
+        {
+          label: "Help/FAQ",
+          href: '#',
+        },
+        {
+          label: "Press",
+          href: '#',
+        },
+        {
+          label: "Affiliates",
+          href: '#',
+        },
+      ]
+    },
+    {
+      title: "More",
+      children: [
+        {
+          label: "Airlinefees",
+          href: '#',
+        },
+        {
+          label: "Airline",
+          href: '#',
+        },
+        {
+          label: "Low fare tips",
+          href: '#',
+        },
+      ]
+    },
+  ]
 
   return (
     <>
@@ -412,6 +465,27 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <footer className="py-20">
+        <div className="section-container">
+          <div className=" flex justify-between">
+            <div>
+              <p className=" mt-5 font-medium text-[13px] text-[#5E6282]">
+                Book your trip in minute, get full Control for much longer.
+              </p>
+            </div>
+            {FOOTER.map((column, index) =>
+              <div key={index} className="">
+                <div>{column.title}</div>
+                <div className="">
+                  {column.children.map((item, i) =>
+                    <Link key={i} href={item.href}>{item.label}</Link>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </footer>
     </>
   )
 }
