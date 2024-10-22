@@ -385,7 +385,7 @@ export default function Home() {
         </div>
         <div>
           <div className="section-container py-36 flex justify-between">
-            {['axon', 'jetstar', 'expedia', 'quantas', 'alitalia'].map((item, index) =>
+            {['axon', 'jetstar', 'expedia', 'qantas', 'alitalia'].map((item, index) =>
               <div key={index} className=" w-60 h-24 flex items-center justify-center rounded-xl bg-white hover:shadow-lg">
                 <Image
                   src={`/assets/homepage/logo-${item}.png`}
