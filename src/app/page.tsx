@@ -1,5 +1,9 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+
+import useScrollPosition from "@/hooks/useScrollStatus"
 
 export default function Home() {
   const CATEGORIES = [
@@ -124,10 +128,13 @@ export default function Home() {
       ],
     },
   ]
+  const { isAtTop, isAtBottom, scrollDirection } = useScrollPosition()
 
   return (
     <>
-      <header className="fixed z-10 w-full bg-white py-9">
+      <header
+        className={`fixed z-10 w-full transition-all duration-300 ease-in-out ${isAtTop ? "bg-transparent py-9 shadow-none" : "bg-white/60 py-2 shadow-md"}`}
+      >
         <div className="section-container flex w-full items-center justify-between">
           <Link href={"/"} className="h-fit w-[100px]">
             <Image
@@ -456,7 +463,7 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div className="">
+        <div>
           <div className="section-container py-20">
             <div className="relative flex flex-col items-center rounded-[20px] rounded-ss-[128px] bg-[#DFD7F9]/20 bg-[url('/assets/homepage/mask-1.svg'),_url('/assets/homepage/mask-2.svg')] bg-[position:-15%_100%,100%_0%] bg-no-repeat py-20">
               <p className="text-center text-[33px] font-semibold text-[#5E6282]">
@@ -473,7 +480,7 @@ export default function Home() {
                     className="absolute left-6 top-1/2 -translate-y-1/2"
                   />
                   <input
-                    className="font-montserrat h-[68px] w-[420px] rounded-[10px] p-6 ps-16 outline-none transition-all duration-300 ease-in-out placeholder:text-[#39425D] focus:outline-none focus:ring"
+                    className="h-[68px] w-[420px] rounded-[10px] p-6 ps-16 font-montserrat outline-none transition-all duration-300 ease-in-out placeholder:text-[#39425D] focus:outline-none focus:ring"
                     placeholder="Your email"
                   />
                 </div>
