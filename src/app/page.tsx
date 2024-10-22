@@ -400,7 +400,7 @@ export default function Home() {
         </div>
         <div className="">
           <div className="section-container py-36">
-            <div className="flex flex-col items-center py-40 rounded-[20px] rounded-ss-[128px] bg-[#DFD7F9]">
+            <div className="flex flex-col items-center py-40 rounded-[20px] rounded-ss-[128px] bg-[#DFD7F9] bg-opacity-20">
               <p className=" font-semibold text-[33px] text-[#5E6282] text-center">
                 Subscribe to get information, latest news and other interesting offers about Jadoo
               </p>
