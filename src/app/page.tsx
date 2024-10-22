@@ -151,19 +151,19 @@ export default function Home() {
                   <Link
                     href={""}
                     key={item}
-                    className="p-5 text-[17px] font-medium text-[#212832] transition-colors duration-300 ease-linear hover:text-gray-500"
+                    className="p-5 text-[17px] font-medium text-[#212832] transition-colors duration-300 ease-in-out hover:text-[#F1A501]"
                   >
                     {item}
                   </Link>
                 )
               )}
             </nav>
-            <button className="h-10 w-[102px] rounded-md border border-solid border-[#212832] text-[17px] font-medium text-[#212832] transition-colors duration-300 ease-linear hover:text-gray-500">
+            <button className="h-10 w-[102px] rounded-md border border-solid border-[#212832] text-[17px] font-medium text-[#212832] transition-colors duration-300 ease-in-out hover:bg-[#212832] hover:text-white">
               Sign up
             </button>
             <Link
               href={""}
-              className="p-5 text-[17px] font-medium text-[#212832] transition-colors duration-300 ease-linear hover:text-gray-500"
+              className="p-5 text-[17px] font-medium text-[#212832] transition-colors duration-300 ease-in-out hover:text-[#F1A501]"
             >
               EN
             </Link>
