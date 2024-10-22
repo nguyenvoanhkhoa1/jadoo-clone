@@ -77,51 +77,51 @@ export default function Home() {
       children: [
         {
           label: "About",
-          href: '#',
+          href: "#",
         },
         {
           label: "Careers",
-          href: '#',
+          href: "#",
         },
         {
           label: "Mobile",
-          href: '#',
+          href: "#",
         },
-      ]
+      ],
     },
     {
       title: "Contact",
       children: [
         {
           label: "Help/FAQ",
-          href: '#',
+          href: "#",
         },
         {
           label: "Press",
-          href: '#',
+          href: "#",
         },
         {
           label: "Affiliates",
-          href: '#',
+          href: "#",
         },
-      ]
+      ],
     },
     {
       title: "More",
       children: [
         {
           label: "Airlinefees",
-          href: '#',
+          href: "#",
         },
         {
           label: "Airline",
-          href: '#',
+          href: "#",
         },
         {
           label: "Low fare tips",
-          href: '#',
+          href: "#",
         },
-      ]
+      ],
     },
   ]
 
@@ -437,29 +437,37 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <div className="section-container py-36 flex justify-between">
-            {['axon', 'jetstar', 'expedia', 'qantas', 'alitalia'].map((item, index) =>
-              <div key={index} className=" w-60 h-24 flex items-center justify-center rounded-xl bg-white hover:shadow-lg">
-                <Image
-                  src={`/assets/homepage/logo-${item}.png`}
-                  alt=""
-                  width={150}
-                  height={50}
-                  className=" w-auto h-auto"
-                />
-              </div>
+          <div className="section-container flex justify-between py-36">
+            {["axon", "jetstar", "expedia", "qantas", "alitalia"].map(
+              (item, index) => (
+                <div
+                  key={index}
+                  className="flex h-24 w-60 items-center justify-center rounded-xl bg-white hover:shadow-lg"
+                >
+                  <Image
+                    src={`/assets/homepage/logo-${item}.png`}
+                    alt=""
+                    width={150}
+                    height={50}
+                    className="size-auto"
+                  />
+                </div>
+              )
             )}
           </div>
         </div>
         <div className="">
           <div className="section-container py-36">
-            <div className="flex flex-col items-center py-40 rounded-[20px] rounded-ss-[128px] bg-[#DFD7F9] bg-opacity-20">
-              <p className=" font-semibold text-[33px] text-[#5E6282] text-center">
-                Subscribe to get information, latest news and other interesting offers about Jadoo
+            <div className="flex flex-col items-center rounded-[20px] rounded-ss-[128px] bg-[#DFD7F9]/20 py-40">
+              <p className="text-center text-[33px] font-semibold text-[#5E6282]">
+                Subscribe to get information, latest news and other interesting
+                offers about Jadoo
               </p>
-              <div className="flex gap-6 mt-[74px]">
-                <input placeholder="Your email"/>
-                <button className=' rounded-[10px] h-[68px] w-44 font-semibold font-openSans text-[17px] text-white bg-gradient-to-b from-[#FF946D] to-[#FF7D68]'>Subscribe</button>
+              <div className="mt-[74px] flex gap-6">
+                <input placeholder="Your email" />
+                <button className="h-[68px] w-44 rounded-[10px] bg-gradient-to-b from-[#FF946D] to-[#FF7D68] font-openSans text-[17px] font-semibold text-white">
+                  Subscribe
+                </button>
               </div>
             </div>
           </div>
@@ -467,22 +475,24 @@ export default function Home() {
       </main>
       <footer className="py-20">
         <div className="section-container">
-          <div className=" flex justify-between">
+          <div className="flex justify-between">
             <div>
-              <p className=" mt-5 font-medium text-[13px] text-[#5E6282]">
+              <p className="mt-5 text-[13px] font-medium text-[#5E6282]">
                 Book your trip in minute, get full Control for much longer.
               </p>
             </div>
-            {FOOTER.map((column, index) =>
+            {FOOTER.map((column, index) => (
               <div key={index} className="">
                 <div>{column.title}</div>
                 <div className="">
-                  {column.children.map((item, i) =>
-                    <Link key={i} href={item.href}>{item.label}</Link>
-                  )}
+                  {column.children.map((item, i) => (
+                    <Link key={i} href={item.href}>
+                      {item.label}
+                    </Link>
+                  ))}
                 </div>
               </div>
-            )}
+            ))}
           </div>
         </div>
       </footer>
