@@ -506,7 +506,7 @@ export default function Home() {
             <div>
               <Link
                 href={"/"}
-                className="text-[44px] font-medium text-[#181E4B]"
+                className="text-[44px] font-medium text-[#181E4B] transition-colors duration-300 ease-in-out hover:text-[#F1A501]"
               >
                 Jadoo.
               </Link>
@@ -532,6 +532,54 @@ export default function Home() {
                 </div>
               </div>
             ))}
+            <div className="mt-5">
+              <div className="flex gap-6">
+                <button className="flex size-10 items-center justify-center rounded-full bg-white drop-shadow-lg">
+                  <Image
+                    src={"/assets/homepage/facebook.svg"}
+                    width={6}
+                    height={13}
+                    alt={""}
+                  />
+                </button>
+                <button className="flex size-11 items-center justify-center rounded-full bg-[url('/assets/homepage/ins-bg.png')] drop-shadow-lg">
+                  <Image
+                    src={"/assets/homepage/instagram.svg"}
+                    width={16}
+                    height={16}
+                    alt={""}
+                  />
+                </button>
+                <button className="flex size-10 items-center justify-center rounded-full bg-white drop-shadow-lg">
+                  <Image
+                    src={"/assets/homepage/twitter.svg"}
+                    width={16}
+                    height={13}
+                    alt={""}
+                  />
+                </button>
+              </div>
+              <div className="mt-6 text-xl font-medium text-[#5E6282]">
+                Discover our app
+              </div>
+              <div className="mt-4 flex gap-2">
+                <Image
+                  src={"/assets/homepage/google-play.svg"}
+                  width={107}
+                  height={35}
+                  alt={""}
+                />
+                <Image
+                  src={"/assets/homepage/play-store.svg"}
+                  width={100}
+                  height={35}
+                  alt={""}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="mt-20 text-center text-sm font-medium text-[#5E6282]">
+            All rights reserved@jadoo.co
           </div>
         </div>
       </footer>
