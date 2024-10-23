@@ -3,7 +3,11 @@
 import { useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import Slider, { Settings } from "react-slick"
 import { useClickAway, useLockBodyScroll } from "react-use"
+
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 import useScrollPosition from "@/hooks/useScrollStatus"
 
@@ -83,6 +87,30 @@ export default function Home() {
       color: "#006380",
     },
   ]
+  const TESTIMONIALS = [
+    {
+      avatar: "/assets/homepage/avatar-1.png",
+      name: "Mike taylor",
+      title: "Lahore, Pakistan",
+      comment:
+        "“On the Windows talking painted pasture yet its express parties use. Sure last upon he same as knew next. Of believed or diverted no.”",
+    },
+    {
+      avatar: "/assets/homepage/avatar-2.png",
+      name: "Jane Cooper",
+      title: "New York, USA",
+      comment:
+        "“Absolutely wonderful experience! The service was top-notch and the product exceeded expectations. I would highly recommend it to others.”",
+    },
+    {
+      avatar: "/assets/homepage/avatar-3.png",
+      name: "John Smith",
+      title: "Sydney, Australia",
+      comment:
+        "“The attention to detail and level of customer service was outstanding. I am extremely satisfied and will be returning for future purchases.”",
+    },
+  ]
+
   const FOOTER = [
     {
       title: "Company",
@@ -144,6 +172,25 @@ export default function Home() {
     setIsOpenLangSelect(false)
   })
   useLockBodyScroll(isOpenLangSelect)
+
+  const [current, setCurrent] = useState(0)
+  var settings: Settings = {
+    dots: false,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    pauseOnHover: true,
+    pauseOnDotsHover: false,
+    fade: true,
+    arrows: false,
+    beforeChange(_, nextSlide) {
+      setCurrent(nextSlide)
+    },
+  }
+  const sliderRef = useRef<Slider>(null)
 
   return (
     <>
@@ -484,8 +531,79 @@ export default function Home() {
               <h2 className="mt-2.5 max-w-[520px] font-volkhov text-[50px] font-bold text-[#14183E]">
                 What people say about Us.
               </h2>
+              <div className="mt-20 flex gap-6">
+                {TESTIMONIALS.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`size-3 cursor-pointer rounded-full transition-colors duration-300 ease-in-out ${
+                      index === current ? "bg-[#39425D]" : "bg-[#E5E5E5]"
+                    }`}
+                    onClick={() => sliderRef.current?.slickGoTo(index)}
+                  ></div>
+                ))}
+              </div>
             </div>
-            <div className=""></div>
+            <div className="relative">
+              <Slider {...settings} ref={sliderRef} className="{styles.slider}">
+                {TESTIMONIALS.map((item, index) => (
+                  <div key={index} className="p-[34px]">
+                    <div className="relative rounded-[10px] bg-white p-8 text-[#5E6282] shadow-lg">
+                      <Image
+                        src={item.avatar}
+                        alt={""}
+                        width={200}
+                        height={200}
+                        className="absolute left-0 top-0 size-[68px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+                      />
+                      <p className="font-medium leading-8">{item.comment}</p>
+                      <div className="mt-8 font-semibold">{item.name}</div>
+                      <div className="mt-1 text-sm">{item.title}</div>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+              <div className="absolute right-0 top-1/2 flex -translate-y-1/2 translate-x-full flex-col gap-3">
+                <button
+                  className="flex h-12 w-16 items-center justify-center rounded-md transition-all duration-300 ease-in-out hover:shadow-lg"
+                  onClick={sliderRef.current?.slickPrev}
+                >
+                  <svg
+                    width="16"
+                    height="10"
+                    viewBox="0 0 16 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={``}
+                  >
+                    <path
+                      d="M1 8.5L8 1.5L15 8.5"
+                      stroke="#3E2E4D"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </button>
+                <button
+                  className="flex h-12 w-16 items-center justify-center rounded-md transition-all duration-300 ease-in-out hover:shadow-lg"
+                  onClick={sliderRef.current?.slickNext}
+                >
+                  <svg
+                    width="16"
+                    height="10"
+                    viewBox="0 0 16 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 1L8 8L15 1"
+                      stroke="#3E2E4D"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
         <div>
