@@ -577,8 +577,8 @@ export default function Home() {
                     <path
                       d="M1 8.5L8 1.5L15 8.5"
                       stroke="#3E2E4D"
-                      stroke-width="2"
-                      stroke-linecap="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
                     />
                   </svg>
                 </button>
@@ -596,8 +596,8 @@ export default function Home() {
                     <path
                       d="M1 1L8 8L15 1"
                       stroke="#3E2E4D"
-                      stroke-width="2"
-                      stroke-linecap="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
                     />
                   </svg>
                 </button>
