@@ -262,13 +262,13 @@ export default function Home() {
         </div>
       </header>
       <main>
-        <div className="bg-[url('/assets/homepage/purple-blur.png'),_url('/assets/homepage/yellow-side.svg')] bg-[position:-58%_-135%,100%_-5%] bg-no-repeat">
-          <div className="section-container grid grid-cols-2 gap-4 pb-12 pt-[105px]">
-            <div className="flex flex-col justify-center">
+        <div className="bg-[url('/assets/homepage/purple-blur.png'),_url('/assets/homepage/yellow-side.svg')] bg-[position:-58%_-135%,100%_-5%] bg-no-repeat pb-12 pt-48">
+          <div className="section-container relative">
+            <div className="flex w-fit flex-col justify-center">
               <div className="text-xl font-bold uppercase text-[#DF6951]">
                 Best destinations around the world
               </div>
-              <h1 className="mt-6 font-volkhov text-[84px] font-bold leading-[89px] text-[#181E4B]">
+              <h1 className="mt-6 max-w-[545px] font-volkhov text-[84px] font-bold leading-[89px] tracking-[-4px] text-[#181E4B]">
                 Travel,{" "}
                 <span className="bg-[url('/assets/homepage/orange-undermark.svg')] bg-[50%_84%] bg-no-repeat">
                   enjoy
@@ -296,19 +296,17 @@ export default function Home() {
                 </button>
               </div>
             </div>
-            <div className="">
-              <Image
-                src={"/assets/homepage/woman-planes.png"}
-                alt="Traveling lady with luggage"
-                width={500}
-                height={500}
-                className="h-auto w-full"
-              />
-            </div>
+            <Image
+              src={"/assets/homepage/woman-planes.png"}
+              alt="Traveling lady with luggage"
+              width={500}
+              height={500}
+              className="absolute right-0 top-1/2 h-auto w-[70%] -translate-y-1/2 translate-x-[10%]"
+            />
           </div>
         </div>
-        <div>
-          <div className="section-container flex flex-col items-center bg-[url('/assets/homepage/plus-graphics-1.svg')] bg-right-top bg-no-repeat pb-20 pt-12">
+        <div className="pb-20 pt-36">
+          <div className="section-container flex flex-col items-center bg-[url('/assets/homepage/plus-graphics-1.svg')] bg-right-top bg-no-repeat">
             <div className="text-lg font-semibold text-[#5E6282]">CATEGORY</div>
             <h2 className="mt-2.5 font-volkhov text-[50px] font-bold text-[#14183E]">
               We Offer Best Services
