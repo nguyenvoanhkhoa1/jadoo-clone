@@ -186,6 +186,7 @@ export default function Home() {
     fade: false,
     arrows: false,
     vertical: true,
+    swipeToSlide: false,
     beforeChange(_, nextSlide) {
       setCurrent(nextSlide)
     },
