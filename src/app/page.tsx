@@ -317,12 +317,12 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="pb-20 pt-24 lg:pt-32 xl:pt-36">
+        <div className="pb-16 pt-24 lg:pb-20 lg:pt-32 xl:pt-36">
           <div className="section-container flex flex-col items-center bg-[url('/assets/homepage/plus-graphics-1.svg')] bg-right-top bg-no-repeat">
             <div className="text-base font-semibold text-[#5E6282] lg:text-lg">
               CATEGORY
             </div>
-            <h2 className="mt-2.5 max-w-96 text-center font-volkhov text-4xl font-bold text-[#14183E] sm:max-w-full sm:text-[40px] md:text-[44px] lg:text-[50px]">
+            <h2 className="mt-2.5 max-w-96 text-center font-volkhov text-4xl font-bold leading-[111%] text-[#14183E] sm:max-w-full sm:text-[40px] md:text-[44px] lg:text-[50px]">
               We Offer Best Services
             </h2>
             <div className="mt-12 grid max-w-96 grid-cols-1 gap-6 ps-4 sm:max-w-full sm:grid-cols-2 sm:ps-0 lg:mt-16 lg:grid-cols-4 lg:gap-9">
@@ -356,18 +356,18 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <div className="section-container flex flex-col items-center pb-20 pt-16">
-            <div className="text-lg font-semibold text-[#5E6282]">
+          <div className="section-container flex flex-col items-center pb-16 pt-12 lg:pb-20 lg:pt-16">
+            <div className="text-base font-semibold text-[#5E6282] lg:text-lg">
               Top Selling
             </div>
-            <h2 className="mt-2.5 font-volkhov text-[50px] font-bold text-[#14183E]">
+            <h2 className="mt-2.5 max-w-96 text-center font-volkhov text-4xl font-bold leading-[111%] text-[#14183E] sm:max-w-full sm:text-[40px] md:text-[44px] lg:text-[50px]">
               Top Destinations
             </h2>
-            <div className="relative mt-16 grid w-full grid-cols-3 gap-9">
+            <div className="relative mt-16 grid w-full max-w-96 grid-cols-1 gap-9 sm:max-w-full sm:grid-cols-4 lg:grid-cols-3">
               {TOP_SELLING.map((item, index) => (
                 <div
                   key={index}
-                  className="overflow-hidden rounded-3xl shadow-lg"
+                  className={`col-span-1 overflow-hidden rounded-3xl shadow-lg sm:col-span-2 lg:col-span-1 ${index === 2 ? "col-start-1 sm:col-start-2 lg:col-start-3" : ""} `}
                 >
                   <Image
                     src={item.thumb}
@@ -399,7 +399,7 @@ export default function Home() {
                 alt=""
                 width={96}
                 height={252}
-                className="absolute right-0 top-1/2 -z-10 -translate-y-1/2 translate-x-1/2"
+                className="absolute right-0 top-1/2 -z-10 hidden -translate-y-1/2 translate-x-1/2 xl:block"
               />
             </div>
           </div>
