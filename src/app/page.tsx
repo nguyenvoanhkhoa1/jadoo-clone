@@ -183,8 +183,9 @@ export default function Home() {
     autoplaySpeed: 5000,
     pauseOnHover: true,
     pauseOnDotsHover: false,
-    fade: true,
+    fade: false,
     arrows: false,
+    vertical: true,
     beforeChange(_, nextSlide) {
       setCurrent(nextSlide)
     },
