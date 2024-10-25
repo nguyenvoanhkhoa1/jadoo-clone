@@ -317,16 +317,18 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="pb-20 pt-36">
+        <div className="pb-20 pt-24 lg:pt-32 xl:pt-36">
           <div className="section-container flex flex-col items-center bg-[url('/assets/homepage/plus-graphics-1.svg')] bg-right-top bg-no-repeat">
-            <div className="text-lg font-semibold text-[#5E6282]">CATEGORY</div>
-            <h2 className="mt-2.5 font-volkhov text-[50px] font-bold text-[#14183E]">
+            <div className="text-base font-semibold text-[#5E6282] lg:text-lg">
+              CATEGORY
+            </div>
+            <h2 className="mt-2.5 max-w-96 text-center font-volkhov text-4xl font-bold text-[#14183E] sm:max-w-full sm:text-[40px] md:text-[44px] lg:text-[50px]">
               We Offer Best Services
             </h2>
-            <div className="mt-16 grid grid-cols-4 gap-9">
+            <div className="mt-12 grid max-w-96 grid-cols-1 gap-6 ps-4 sm:max-w-full sm:grid-cols-2 sm:ps-0 lg:mt-16 lg:grid-cols-4 lg:gap-9">
               {CATEGORIES.map((category, index) => (
                 <div key={index} className="group relative">
-                  <div className="flex flex-col items-center rounded-[36px] bg-white px-6 py-11 text-center transition-shadow duration-300 ease-linear hover:shadow-lg">
+                  <div className="flex h-full flex-col items-center rounded-[36px] bg-white px-6 py-11 text-center drop-shadow-lg transition-shadow duration-300 ease-linear hover:drop-shadow-lg md:drop-shadow-none">
                     <Image
                       src={category.imgLink}
                       alt=""
@@ -346,7 +348,7 @@ export default function Home() {
                     alt=""
                     width={100}
                     height={100}
-                    className="absolute bottom-0 left-0 -z-10 size-auto opacity-0 transition-all duration-300 ease-linear group-hover:-bottom-9 group-hover:-left-9 group-hover:opacity-100"
+                    className="absolute bottom-0 left-0 -z-10 size-auto opacity-0 transition-all duration-300 ease-in-out group-hover:-bottom-6 group-hover:-left-6 group-hover:opacity-100 lg:group-hover:-bottom-9 lg:group-hover:-left-9"
                   />
                 </div>
               ))}
