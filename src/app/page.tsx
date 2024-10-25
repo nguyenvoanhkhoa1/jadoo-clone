@@ -196,10 +196,10 @@ export default function Home() {
   return (
     <>
       <header
-        className={`fixed z-10 w-full transition-all duration-300 ease-in-out ${isAtTop ? "bg-transparent py-9 shadow-none" : "bg-white/60 py-2 shadow-md"}`}
+        className={`fixed z-10 w-full transition-all duration-300 ease-in-out ${isAtTop ? "bg-transparent py-6 shadow-none lg:py-8 xl:py-9" : "bg-white/60 py-2 shadow-md"}`}
       >
         <div className="section-container flex w-full items-center justify-between">
-          <Link href={"/"} className="h-fit w-[100px]">
+          <Link href={"/"} className="h-fit w-[100px] shrink-0">
             <Image
               src={"/assets/jadoo-travel-logo.svg"}
               alt={""}
@@ -207,7 +207,7 @@ export default function Home() {
               height={34}
             />
           </Link>
-          <div className="flex items-center gap-4">
+          <div className="hidden items-center gap-4 lg:flex">
             <nav className="flex gap-4">
               {["Destinations", "Hotels", "Flights", "Bookings", "Login"].map(
                 (item) => (
@@ -261,38 +261,48 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <button className="flex h-12 w-16 items-center justify-center rounded-md transition-all duration-300 ease-in-out hover:shadow-lg lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path>
+            </svg>
+          </button>
         </div>
       </header>
       <main>
-        <div className="bg-[url('/assets/homepage/purple-blur.png'),_url('/assets/homepage/yellow-side.svg')] bg-[position:-58%_-135%,100%_-5%] bg-no-repeat pb-12 pt-48">
+        <div className="bg-[url('/assets/homepage/purple-blur.png'),_url('/assets/homepage/yellow-side.svg')] bg-[position:-80%_60%,100%_0%] bg-no-repeat pb-12 pt-24 md:bg-[position:-80%_60%,100%_100%] md:pt-32 lg:bg-[position:-58%_-135%,100%_-5%] lg:pt-48">
           <div className="section-container relative">
-            <div className="flex w-fit flex-col justify-center">
-              <div className="text-xl font-bold uppercase text-[#DF6951]">
+            <div className="flex w-full flex-col items-center justify-center text-center md:w-fit md:items-start md:text-start">
+              <div className="text-lg font-bold uppercase text-[#DF6951] lg:text-xl">
                 Best destinations around the world
               </div>
-              <h1 className="mt-6 max-w-[545px] font-volkhov text-[84px] font-bold leading-[89px] tracking-[-4px] text-[#181E4B]">
+              <h1 className="mt-4 max-w-[400px] px-4 font-volkhov text-[50px] font-bold leading-[106%] tracking-[-4px] text-[#181E4B] md:px-0 md:text-[56px] lg:mt-6 lg:max-w-[470px] lg:text-[74px] xl:max-w-[545px] xl:text-[84px]">
                 Travel,{" "}
                 <span className="bg-[url('/assets/homepage/orange-undermark.svg')] bg-[50%_84%] bg-no-repeat">
                   enjoy
                 </span>{" "}
                 and live a new and full life
               </h1>
-              <p className="mt-[30px] max-w-[472px] font-medium leading-[30px] text-[#5E6282]">
+              <p className="mt-6 max-w-[350px] text-sm font-medium leading-[187.5%] text-[#5E6282] lg:mt-[30px] lg:max-w-[450px] lg:text-base xl:max-w-[472px]">
                 Built Wicket longer admire do barton vanity itself do in it.
                 Preferred to sportsmen it engrossed listening. Park gate sell
                 they west hard for the.
               </p>
-              <div className="mt-[34px] flex gap-11">
-                <button className="h-[60px] w-[170px] rounded-[10px] bg-[#F1A501] text-lg font-medium text-white">
+              <div className="mt-7 flex gap-8 lg:mt-[34px] lg:gap-11">
+                <button className="h-12 w-[150px] rounded-[10px] bg-[#F1A501] text-base font-medium text-white lg:h-[60px] lg:w-[170px] lg:text-lg">
                   Find out more
                 </button>
-                <button className="flex items-center gap-5 text-[17px] font-medium text-[#686D77]">
+                <button className="flex items-center gap-5 text-base font-medium text-[#686D77] lg:text-[17px]">
                   <Image
                     src={"/assets/homepage/play-button.svg"}
                     alt={""}
                     width={52}
                     height={52}
-                    className="drop-shadow-[0_15px_15px_rgba(223,105,81,0.5)]"
+                    className="size-11 drop-shadow-[0_15px_15px_rgba(223,105,81,0.5)] lg:size-auto"
                   />
                   Play Demo
                 </button>
@@ -303,7 +313,7 @@ export default function Home() {
               alt="Traveling lady with luggage"
               width={500}
               height={500}
-              className="absolute right-0 top-1/2 h-auto w-[70%] -translate-y-1/2 translate-x-[10%]"
+              className="relative right-0 top-1/2 mx-auto mt-8 h-auto w-full translate-x-0 translate-y-0 md:absolute md:mx-0 md:mt-0 md:w-[63%] md:-translate-y-1/2 lg:w-[65%] xl:w-[70%] xl:translate-x-[10%]"
             />
           </div>
         </div>
