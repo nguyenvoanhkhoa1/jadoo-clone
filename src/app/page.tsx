@@ -186,10 +186,19 @@ export default function Home() {
     fade: false,
     arrows: false,
     vertical: true,
-    swipeToSlide: false,
+    swipe: false,
     beforeChange(_, nextSlide) {
       setCurrent(nextSlide)
     },
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          vertical: false,
+          swipe: true,
+        },
+      },
+    ],
   }
   const sliderRef = useRef<Slider>(null)
 
@@ -536,16 +545,16 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {/* <div>
-          <div className="section-container grid grid-cols-2 py-20">
-            <div>
-              <div className="text-lg font-semibold text-[#5E6282]">
+        <div>
+          <div className="section-container grid grid-cols-1 py-12 md:py-16 lg:grid-cols-2 lg:py-20">
+            <div className="flex flex-col items-center lg:items-start">
+              <div className="text-base font-semibold text-[#5E6282] lg:text-lg">
                 Testimonials
               </div>
-              <h2 className="mt-2.5 max-w-[520px] font-volkhov text-[50px] font-bold text-[#14183E]">
+              <h2 className="mt-2.5 max-w-96 text-center font-volkhov text-4xl font-bold leading-[111%] text-[#14183E] sm:max-w-[520px] sm:text-[40px] md:text-[44px] lg:text-start lg:text-[50px]">
                 What people say about Us.
               </h2>
-              <div className="mt-20 flex gap-6">
+              <div className="mt-20 hidden gap-6 lg:flex">
                 {TESTIMONIALS.map((_, index) => (
                   <div
                     key={index}
@@ -557,11 +566,11 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="relative">
+            <div className="relative mt-8 flex flex-col lg:mt-0">
               <Slider {...settings} ref={sliderRef} className="{styles.slider}">
                 {TESTIMONIALS.map((item, index) => (
                   <div key={index} className="p-[34px]">
-                    <div className="relative rounded-[10px] bg-white p-8 text-[#5E6282] shadow-lg">
+                    <div className="relative rounded-[10px] bg-white p-8 text-[#5E6282] drop-shadow-lg">
                       <Image
                         src={item.avatar}
                         alt={""}
@@ -576,7 +585,7 @@ export default function Home() {
                   </div>
                 ))}
               </Slider>
-              <div className="absolute right-0 top-1/2 flex -translate-y-1/2 translate-x-full flex-col gap-3">
+              <div className="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-full flex-col gap-3 xl:flex">
                 <button
                   className="flex h-12 w-16 items-center justify-center rounded-md transition-all duration-300 ease-in-out hover:shadow-lg"
                   onClick={sliderRef.current?.slickPrev}
@@ -617,10 +626,21 @@ export default function Home() {
                   </svg>
                 </button>
               </div>
+              <div className="mx-auto mt-8 flex gap-6 lg:hidden">
+                {TESTIMONIALS.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`size-3 cursor-pointer rounded-full transition-colors duration-300 ease-in-out ${
+                      index === current ? "bg-[#39425D]" : "bg-[#E5E5E5]"
+                    }`}
+                    onClick={() => sliderRef.current?.slickGoTo(index)}
+                  ></div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-        <div>
+        {/* <div>
           <div className="section-container flex justify-between py-20">
             {["axon", "jetstar", "expedia", "qantas", "alitalia"].map(
               (item, index) => (
