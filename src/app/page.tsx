@@ -273,7 +273,7 @@ export default function Home() {
           </button>
         </div>
       </header>
-      <main>
+      <main className="overflow-x-hidden">
         <div className="bg-[url('/assets/homepage/purple-blur.png'),_url('/assets/homepage/yellow-side.svg')] bg-[position:-80%_60%,100%_0%] bg-no-repeat pb-12 pt-24 md:bg-[position:-80%_60%,100%_100%] md:pt-32 lg:bg-[position:-58%_-135%,100%_-5%] lg:pt-48">
           <div className="section-container relative">
             <div className="flex w-full flex-col items-center justify-center text-center md:w-fit md:items-start md:text-start">
@@ -405,17 +405,20 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <div className="section-container grid grid-cols-2 py-20">
-            <div>
-              <div className="text-lg font-semibold text-[#5E6282]">
+          <div className="section-container grid grid-cols-1 py-12 md:py-16 lg:grid-cols-2 lg:py-20">
+            <div className="flex flex-col items-center lg:items-start">
+              <div className="text-base font-semibold text-[#5E6282] lg:text-lg">
                 Easy and Fast
               </div>
-              <h2 className="mt-2.5 max-w-[520px] font-volkhov text-[50px] font-bold text-[#14183E]">
+              <h2 className="sm-max-w-[520px] mt-2.5 max-w-96 text-center font-volkhov text-4xl font-bold leading-[111%] text-[#14183E] sm:text-[40px] md:text-[44px] lg:text-start lg:text-[50px]">
                 Book your next trip in 3 easy steps
               </h2>
-              <div className="mt-8 flex flex-col gap-12">
+              <div className="mt-8 flex flex-col gap-6 md:flex-row md:gap-8 lg:flex-col lg:gap-12">
                 {STEPS.map((step, index) => (
-                  <div key={index} className="flex max-w-[400px] gap-5">
+                  <div
+                    key={index}
+                    className="flex max-w-[400px] flex-row gap-5 md:flex-col lg:flex-row"
+                  >
                     <div
                       className="mt-2 flex size-12 shrink-0 items-center justify-center rounded-xl"
                       style={{ backgroundColor: step.color }}
@@ -436,7 +439,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="relative flex items-center justify-center">
+            <div className="relative mt-8 flex items-center justify-center lg:mt-0">
               <Image
                 src={"/assets/homepage/blue-blur.png"}
                 alt=""
@@ -444,7 +447,7 @@ export default function Home() {
                 height={518}
                 className="absolute left-[20%] top-[-10%] -z-10 h-auto w-[500px]"
               />
-              <div className="max-w-[370px] rounded-[28px] bg-white px-6 pb-8 pt-5 shadow-xl">
+              <div className="max-w-[370px] rounded-[28px] bg-white px-6 pb-8 pt-5 drop-shadow-xl">
                 <Image
                   src={"/assets/homepage/booking-thumb.png"}
                   alt=""
@@ -502,7 +505,7 @@ export default function Home() {
                           className=""
                         />
                       </button>
-                      <div className="absolute bottom-full left-full flex w-max -translate-x-1/2 items-start gap-3 rounded-[18px] bg-white p-5 shadow-xl">
+                      <div className="absolute bottom-full left-full hidden w-max -translate-x-1/2 items-start gap-3 rounded-[18px] bg-white p-5 drop-shadow-xl md:flex">
                         <Image
                           src={"/assets/homepage/trip-thumb.png"}
                           alt=""
@@ -533,7 +536,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div>
+        {/* <div>
           <div className="section-container grid grid-cols-2 py-20">
             <div>
               <div className="text-lg font-semibold text-[#5E6282]">
@@ -679,9 +682,9 @@ export default function Home() {
               />
             </div>
           </div>
-        </div>
+        </div> */}
       </main>
-      <footer className="py-20">
+      {/* <footer className="py-20">
         <div className="section-container">
           <div className="flex justify-between">
             <div>
@@ -763,7 +766,7 @@ export default function Home() {
             All rights reserved@jadoo.co
           </div>
         </div>
-      </footer>
+      </footer> */}
     </>
   )
 }
