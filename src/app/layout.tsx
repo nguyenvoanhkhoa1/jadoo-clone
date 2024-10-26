@@ -37,6 +37,32 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
   },
   keywords: ["Jadoo", "Travel", "Jadoo Travel"],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  openGraph: {
+    title: "Jadoo Travel",
+    description: "Best services in the travel industry",
+    url: "https://jadoo-clone.vercel.app",
+    siteName: "Jadoo Travel",
+    locale: "en-US",
+    type: "website",
+    images: {
+      url: "https://jadoo-clone-nine.vercel.app/_next/image?url=%2Fassets%2Fhomepage%2Fwoman-planes.png&w=1080&q=75",
+    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jadoo Travel",
+    images: {
+      url: "https://jadoo-clone-nine.vercel.app/_next/image?url=%2Fassets%2Fhomepage%2Fwoman-planes.png&w=1080&q=75",
+    },
+  },
 }
 
 export default function RootLayout({
