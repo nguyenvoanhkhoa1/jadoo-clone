@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
+    "aos": "^2.3.4",
     "eslint-plugin-tailwindcss": "^3.17.5",
     "eslint-plugin-unused-imports": "^4.1.4",
     "next": "14.2.15",
@@ -21,6 +22,7 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

@@ -3,9 +3,11 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import AOS from "aos"
 import Slider, { Settings } from "react-slick"
 import { useClickAway, useLockBodyScroll, useMedia } from "react-use"
 
+import "aos/dist/aos.css"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
@@ -170,7 +172,8 @@ export default function Home() {
   const [language, setLanguage] = useState<Language>(Language.EN)
   const [isOpenLangSelect, setIsOpenLangSelect] = useState(false)
   const [current, setCurrent] = useState(0)
-  const isDesktop = useMedia("(min-width: 1024px)")
+  const isDesktop = useMedia("(min-width: 1024px)", true)
+  const isMd = useMedia("(min-width: 768px)", false)
 
   const langSelectRef = useRef(null)
   const sliderRef = useRef<Slider>(null)
@@ -211,6 +214,32 @@ export default function Home() {
   useEffect(() => {
     if (isDesktop) {
       setOpenMobileMenu(false)
+    }
+  }, [isDesktop])
+
+  useEffect(() => {
+    AOS.init({
+      // // Global settings:
+      // disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      // startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      // initClassName: 'aos-init', // class applied after initialization
+      // animatedClassName: 'aos-animate', // class applied on animation
+      // useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      // disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      // debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      // throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+      // // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      // offset: 120, // offset (in px) from the original trigger point
+      delay: 0, // values from 0 to 3000, with step 50ms
+      duration: 800, // values from 0 to 3000, with step 50ms
+      easing: "ease-in-out", // default easing for AOS animations
+      // once: false, // whether animation should happen only once - while scrolling down
+      mirror: false, // whether elements should animate out while scrolling past them
+      // anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+    })
+
+    return () => {
+      AOS.refresh()
     }
   }, [isDesktop])
 
@@ -375,22 +404,38 @@ export default function Home() {
         <div className="bg-[url('/assets/homepage/purple-blur.png'),_url('/assets/homepage/yellow-side.svg')] bg-[position:-80%_60%,100%_0%] bg-no-repeat pb-12 pt-24 md:bg-[position:-80%_60%,100%_100%] md:pt-32 lg:bg-[position:-58%_-135%,100%_-5%] lg:pt-48">
           <div className="section-container relative">
             <div className="flex w-full flex-col items-center justify-center text-center md:w-fit md:items-start md:text-start">
-              <div className="text-lg font-bold uppercase text-[#DF6951] lg:text-xl">
+              <div
+                className="text-lg font-bold uppercase text-[#DF6951] lg:text-xl"
+                data-aos="fade-right"
+                data-aos-delay={0}
+              >
                 Best destinations around the world
               </div>
-              <h1 className="mt-4 max-w-[400px] px-4 font-volkhov text-[50px] font-bold leading-[106%] tracking-[-4px] text-[#181E4B] md:px-0 md:text-[56px] lg:mt-6 lg:max-w-[470px] lg:text-[74px] xl:max-w-[545px] xl:text-[84px]">
+              <h1
+                className="mt-4 max-w-[400px] px-4 font-volkhov text-[50px] font-bold leading-[106%] tracking-[-4px] text-[#181E4B] md:px-0 md:text-[56px] lg:mt-6 lg:max-w-[470px] lg:text-[74px] xl:max-w-[545px] xl:text-[84px]"
+                data-aos="fade-right"
+                data-aos-delay={150}
+              >
                 Travel,{" "}
                 <span className="bg-[url('/assets/homepage/orange-undermark.svg')] bg-[50%_84%] bg-no-repeat">
                   enjoy
                 </span>{" "}
                 and live a new and full life
               </h1>
-              <p className="mt-6 max-w-[350px] text-sm font-medium leading-[187.5%] text-[#5E6282] lg:mt-[30px] lg:max-w-[450px] lg:text-base xl:max-w-[472px]">
+              <p
+                className="mt-6 max-w-[350px] text-sm font-medium leading-[187.5%] text-[#5E6282] lg:mt-[30px] lg:max-w-[450px] lg:text-base xl:max-w-[472px]"
+                data-aos="fade-right"
+                data-aos-delay={300}
+              >
                 Built Wicket longer admire do barton vanity itself do in it.
                 Preferred to sportsmen it engrossed listening. Park gate sell
                 they west hard for the.
               </p>
-              <div className="mt-7 flex gap-8 lg:mt-[34px] lg:gap-11">
+              <div
+                className="mt-7 flex gap-8 lg:mt-[34px] lg:gap-11"
+                data-aos="fade-right"
+                data-aos-delay={450}
+              >
                 <button className="h-12 w-[150px] rounded-[10px] bg-[#F1A501] text-base font-medium text-white transition-all duration-300 ease-in-out hover:bg-[#c98f11] lg:h-[60px] lg:w-[170px] lg:text-lg">
                   Find out more
                 </button>
@@ -415,20 +460,40 @@ export default function Home() {
               width={500}
               height={500}
               className="relative right-0 top-1/2 mx-auto mt-8 h-auto w-full translate-x-0 translate-y-0 md:absolute md:mx-0 md:mt-0 md:w-[63%] md:-translate-y-1/2 lg:w-[65%] xl:w-[70%] xl:translate-x-[10%]"
+              {...(!isMd
+                ? {
+                    "data-aos": "fade-right",
+                    "data-aos-delay": 600,
+                  }
+                : {
+                    "data-aos": "",
+                    "data-aos-delay": 0,
+                  })}
             />
           </div>
         </div>
         <div className="pb-16 pt-24 lg:pb-20 lg:pt-32 xl:pt-36">
           <div className="section-container flex flex-col items-center bg-[url('/assets/homepage/plus-graphics-1.svg')] bg-right-top bg-no-repeat">
-            <div className="text-base font-semibold text-[#5E6282] lg:text-lg">
+            <div
+              className="text-base font-semibold text-[#5E6282] lg:text-lg"
+              data-aos="zoom-in"
+            >
               CATEGORY
             </div>
-            <h2 className="mt-2.5 max-w-96 text-center font-volkhov text-4xl font-bold leading-[111%] text-[#14183E] sm:max-w-full sm:text-[40px] md:text-[44px] lg:text-[50px]">
+            <h2
+              className="mt-2.5 max-w-96 text-center font-volkhov text-4xl font-bold leading-[111%] text-[#14183E] sm:max-w-full sm:text-[40px] md:text-[44px] lg:text-[50px]"
+              data-aos="zoom-in"
+            >
               We Offer Best Services
             </h2>
             <div className="mt-12 grid max-w-96 grid-cols-1 gap-6 ps-4 sm:max-w-full sm:grid-cols-2 sm:ps-0 lg:mt-16 lg:grid-cols-4 lg:gap-9">
               {CATEGORIES.map((category, index) => (
-                <div key={index} className="group relative">
+                <div
+                  key={index}
+                  className="group relative"
+                  data-aos="fade-up"
+                  data-aos-delay={isDesktop ? index * 200 : 0}
+                >
                   <div className="flex h-full flex-col items-center rounded-[36px] bg-white px-6 py-11 text-center drop-shadow-lg transition-shadow duration-300 ease-linear hover:drop-shadow-lg md:drop-shadow-none">
                     <Image
                       src={category.imgLink}
@@ -458,10 +523,16 @@ export default function Home() {
         </div>
         <div>
           <div className="section-container flex flex-col items-center pb-16 pt-12 lg:pb-20 lg:pt-16">
-            <div className="text-base font-semibold text-[#5E6282] lg:text-lg">
+            <div
+              className="text-base font-semibold text-[#5E6282] lg:text-lg"
+              data-aos="zoom-in"
+            >
               Top Selling
             </div>
-            <h2 className="mt-2.5 max-w-96 text-center font-volkhov text-4xl font-bold leading-[111%] text-[#14183E] sm:max-w-full sm:text-[40px] md:text-[44px] lg:text-[50px]">
+            <h2
+              className="mt-2.5 max-w-96 text-center font-volkhov text-4xl font-bold leading-[111%] text-[#14183E] sm:max-w-full sm:text-[40px] md:text-[44px] lg:text-[50px]"
+              data-aos="zoom-in"
+            >
               Top Destinations
             </h2>
             <div className="relative mt-16 grid w-full max-w-96 grid-cols-1 gap-9 sm:max-w-full sm:grid-cols-4 lg:grid-cols-3">
@@ -469,6 +540,10 @@ export default function Home() {
                 <div
                   key={index}
                   className={`group col-span-1 cursor-pointer overflow-hidden rounded-3xl drop-shadow-md transition-all duration-300 ease-in-out hover:drop-shadow-xl sm:col-span-2 lg:col-span-1 ${index === 2 ? "col-start-1 sm:col-start-2 lg:col-start-3" : ""} `}
+                  {...(isDesktop && {
+                    "data-aos": "fade-up",
+                    "data-aos-delay": index * 200,
+                  })}
                 >
                   <div className="h-[328px] w-full overflow-hidden">
                     <Image
@@ -512,10 +587,16 @@ export default function Home() {
         <div>
           <div className="section-container grid grid-cols-1 py-12 md:py-16 lg:grid-cols-2 lg:py-20">
             <div className="flex flex-col items-center lg:items-start">
-              <div className="text-base font-semibold text-[#5E6282] lg:text-lg">
+              <div
+                className="text-base font-semibold text-[#5E6282] lg:text-lg"
+                data-aos="fade-right"
+              >
                 Easy and Fast
               </div>
-              <h2 className="sm-max-w-[520px] mt-2.5 max-w-96 text-center font-volkhov text-4xl font-bold leading-[111%] text-[#14183E] sm:text-[40px] md:text-[44px] lg:text-start lg:text-[50px]">
+              <h2
+                className="sm-max-w-[520px] mt-2.5 max-w-96 text-center font-volkhov text-4xl font-bold leading-[111%] text-[#14183E] sm:text-[40px] md:text-[44px] lg:text-start lg:text-[50px]"
+                data-aos="fade-right"
+              >
                 Book your next trip in 3 easy steps
               </h2>
               <div className="mt-8 flex flex-col gap-6 md:flex-row md:gap-8 lg:flex-col lg:gap-12">
@@ -523,6 +604,7 @@ export default function Home() {
                   <div
                     key={index}
                     className="flex max-w-[400px] flex-row gap-5 md:flex-col lg:flex-row"
+                    data-aos="fade-right"
                   >
                     <div
                       className="mt-2 flex size-12 shrink-0 items-center justify-center rounded-xl"
@@ -544,7 +626,10 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="relative mt-8 flex items-center justify-center lg:mt-0">
+            <div
+              className="relative mt-8 flex items-center justify-center lg:mt-0"
+              data-aos="fade-left"
+            >
               <Image
                 src={"/assets/homepage/blue-blur.png"}
                 alt=""
@@ -644,7 +729,10 @@ export default function Home() {
         </div>
         <div>
           <div className="section-container grid grid-cols-1 py-12 md:py-16 lg:grid-cols-2 lg:py-20">
-            <div className="flex flex-col items-center lg:items-start">
+            <div
+              className="flex flex-col items-center lg:items-start"
+              data-aos="fade-right"
+            >
               <div className="text-base font-semibold text-[#5E6282] lg:text-lg">
                 Testimonials
               </div>
@@ -663,7 +751,10 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="relative mt-8 flex flex-col lg:mt-0">
+            <div
+              className="relative mt-8 flex flex-col lg:mt-0"
+              data-aos="fade-left"
+            >
               <Slider {...settings} ref={sliderRef} className="{styles.slider}">
                 {TESTIMONIALS.map((item, index) => (
                   <div key={index} className="p-[34px]">
@@ -744,6 +835,10 @@ export default function Home() {
                 <div
                   key={index}
                   className="flex h-20 cursor-pointer items-center justify-center rounded-xl bg-white px-8 grayscale transition-all duration-300 ease-in-out hover:scale-125 hover:shadow-lg hover:grayscale-0"
+                  {...(isDesktop && {
+                    "data-aos": "fade-up",
+                    "data-aos-delay": index * 150,
+                  })}
                 >
                   <Image
                     src={`/assets/homepage/logo-${item}.png`}
@@ -759,12 +854,18 @@ export default function Home() {
         <div>
           <div className="section-container py-12 md:py-16 lg:py-20">
             <div className="relative flex flex-col items-center rounded-[20px] rounded-ss-[80px] bg-[#DFD7F9]/20 bg-[url('/assets/homepage/mask-1.svg'),_url('/assets/homepage/mask-2.svg')] bg-[position:-15%_100%,100%_0%] bg-no-repeat px-6 py-12 md:rounded-ss-[128px] md:px-8 md:py-16 lg:py-20">
-              <p className="text-center text-2xl font-semibold text-[#5E6282] md:text-3xl xl:text-[33px]">
+              <p
+                className="text-center text-2xl font-semibold text-[#5E6282] md:text-3xl xl:text-[33px]"
+                data-aos="zoom-in"
+              >
                 Subscribe to get information, latest news and other interesting
                 offers about Jadoo
               </p>
               <div className="mt-9 flex w-full flex-col items-center gap-6 md:mt-12 md:w-auto md:flex-row lg:mt-[74px]">
-                <div className="relative w-full md:w-auto">
+                <div
+                  className="relative w-full md:w-auto"
+                  data-aos="fade-right"
+                >
                   <Image
                     src={"assets/homepage/envelop.svg"}
                     alt={""}
@@ -777,7 +878,10 @@ export default function Home() {
                     placeholder="Your email"
                   />
                 </div>
-                <button className="h-[68px] w-44 rounded-[10px] bg-gradient-to-b from-[#FF946D] to-[#FF7D68] font-openSans text-[17px] font-semibold text-white">
+                <button
+                  className="h-[68px] w-44 rounded-[10px] bg-gradient-to-b from-[#FF946D] to-[#FF7D68] font-openSans text-[17px] font-semibold text-white"
+                  data-aos="fade-left"
+                >
                   Subscribe
                 </button>
               </div>
