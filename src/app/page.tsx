@@ -1,10 +1,10 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import Slider, { Settings } from "react-slick"
-import { useClickAway, useLockBodyScroll } from "react-use"
+import { useClickAway, useLockBodyScroll, useMedia } from "react-use"
 
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -18,6 +18,7 @@ enum Language {
 const languageOptions = Object.values(Language)
 
 export default function Home() {
+  const HEADER_NAV = ["Destinations", "Hotels", "Flights", "Bookings", "Login"]
   const CATEGORIES = [
     {
       title: "Calculated Weather",
@@ -165,15 +166,21 @@ export default function Home() {
     },
   ]
   const { isAtTop, isAtBottom, scrollDirection } = useScrollPosition()
+  const [openMobileMenu, setOpenMobileMenu] = useState(false)
   const [language, setLanguage] = useState<Language>(Language.EN)
   const [isOpenLangSelect, setIsOpenLangSelect] = useState(false)
+  const [current, setCurrent] = useState(0)
+  const isDesktop = useMedia("(min-width: 1024px)")
+
   const langSelectRef = useRef(null)
+  const sliderRef = useRef<Slider>(null)
+
   useClickAway(langSelectRef, () => {
     setIsOpenLangSelect(false)
   })
   useLockBodyScroll(isOpenLangSelect)
+  useLockBodyScroll(openMobileMenu)
 
-  const [current, setCurrent] = useState(0)
   var settings: Settings = {
     dots: false,
     infinite: true,
@@ -200,7 +207,12 @@ export default function Home() {
       },
     ],
   }
-  const sliderRef = useRef<Slider>(null)
+
+  useEffect(() => {
+    if (isDesktop) {
+      setOpenMobileMenu(false)
+    }
+  }, [isDesktop])
 
   return (
     <>
@@ -218,17 +230,15 @@ export default function Home() {
           </Link>
           <div className="hidden items-center gap-4 lg:flex">
             <nav className="flex gap-4">
-              {["Destinations", "Hotels", "Flights", "Bookings", "Login"].map(
-                (item) => (
-                  <Link
-                    href={""}
-                    key={item}
-                    className="p-5 text-[17px] font-medium text-[#212832] transition-colors duration-300 ease-in-out hover:text-[#F1A501]"
-                  >
-                    {item}
-                  </Link>
-                )
-              )}
+              {HEADER_NAV.map((item) => (
+                <Link
+                  href={""}
+                  key={item}
+                  className="p-5 text-[17px] font-medium text-[#212832] transition-colors duration-300 ease-in-out hover:text-[#F1A501]"
+                >
+                  {item}
+                </Link>
+              ))}
             </nav>
             <button className="h-10 w-[102px] rounded-md border border-solid border-[#212832] text-[17px] font-medium text-[#212832] transition-colors duration-300 ease-in-out hover:bg-[#212832] hover:text-white">
               Sign up
@@ -270,7 +280,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <button className="flex h-12 w-16 items-center justify-center rounded-md transition-all duration-300 ease-in-out hover:shadow-lg lg:hidden">
+          <button
+            className="flex size-12 items-center justify-center rounded-md transition-all duration-300 ease-in-out hover:shadow-lg lg:hidden"
+            onClick={() => setOpenMobileMenu(true)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -280,6 +293,82 @@ export default function Home() {
               <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path>
             </svg>
           </button>
+          <div
+            className={`fixed left-0 top-0 block h-screen w-screen bg-black/90 transition-all duration-300 ease-in-out lg:hidden ${openMobileMenu ? "left-0" : "left-full"}`}
+          >
+            <div className={`section-container ${isAtTop ? "py-6" : "py-2"}`}>
+              <button
+                className="top-4 float-end flex size-12 items-center justify-center transition-all duration-300 ease-in-out hover:shadow-lg"
+                onClick={() => setOpenMobileMenu(false)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke="white"
+                  fill="white"
+                >
+                  <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
+                </svg>
+              </button>
+              <div className="float-none mt-12 flex flex-col gap-2">
+                {HEADER_NAV.map((item, index) => (
+                  <Link
+                    href={"/"}
+                    key={index}
+                    className="block py-4 text-center text-[#F1A501] transition-all duration-200 ease-in-out active:bg-[#F1A501] active:text-[#212832]"
+                    onClick={() =>
+                      setTimeout(() => {
+                        setOpenMobileMenu(false)
+                      }, 500)
+                    }
+                  >
+                    {item}
+                  </Link>
+                ))}
+                <button className="mx-auto mt-4 h-10 w-[102px] rounded-md bg-[#F1A501] text-[17px] font-medium text-[#212832] transition-colors duration-300 ease-in-out">
+                  Sign up
+                </button>
+                <div className="relative" ref={langSelectRef}>
+                  <button
+                    className="group mx-auto flex items-center gap-1.5 p-3 text-[17px] font-medium text-[#F1A501] transition-colors duration-300 ease-in-out"
+                    onClick={() => setIsOpenLangSelect(true)}
+                  >
+                    <span className="w-6">{language}</span>
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="stroke-[#F1A501]"
+                    >
+                      <path d="M0.5 0.5L5 5L9.5 0.5" />
+                    </svg>
+                  </button>
+                  <div
+                    className={`absolute right-0 w-full space-y-1 rounded-md p-1 drop-shadow-lg transition-all duration-300 ease-in-out ${isOpenLangSelect ? "pointer-events-auto top-full opacity-100" : "pointer-events-none top-1/2 opacity-0"}`}
+                  >
+                    {languageOptions.map((lang) => (
+                      <button
+                        key={lang}
+                        onClick={() => {
+                          setLanguage(lang)
+                          setIsOpenLangSelect(false)
+                        }}
+                        className={`w-full rounded-md px-3 py-1 text-center transition-colors duration-300 ease-out ${
+                          lang === language ? "text-[#F1A501]" : "text-white"
+                        }`}
+                      >
+                        {lang}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
       <main className="overflow-x-hidden">
