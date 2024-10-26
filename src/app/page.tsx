@@ -704,40 +704,43 @@ export default function Home() {
           </div>
         </div>
       </main>
-      {/* <footer className="py-20">
+      <footer className="py-12 md:py-16 lg:py-20">
         <div className="section-container">
-          <div className="flex justify-between">
-            <div>
+          <div className="flex flex-col items-center justify-between gap-6 lg:flex-row lg:items-start lg:gap-0">
+            <div className="flex flex-col items-center lg:items-start">
               <Link
                 href={"/"}
                 className="text-[44px] font-medium text-[#181E4B] transition-colors duration-300 ease-in-out hover:text-[#F1A501]"
               >
                 Jadoo.
               </Link>
-              <p className="mt-5 max-w-52 text-[13px] font-medium text-[#5E6282]">
+              <p className="mt-5 max-w-52 text-center text-[13px] font-medium text-[#5E6282] lg:text-start">
                 Book your trip in minute, get full Control for much longer.
               </p>
             </div>
-            {FOOTER.map((column, index) => (
-              <div key={index} className="mt-5">
-                <div className="text-xl font-bold text-[#080809]">
-                  {column.title}
+            <div className="flex w-auto flex-wrap justify-center gap-10 sm:w-max sm:flex-nowrap sm:gap-16 xl:gap-20">
+              {FOOTER.map((column, index) => (
+                <div key={index} className="mt-5">
+                  <div className="text-xl font-bold text-[#080809]">
+                    {column.title}
+                  </div>
+                  <div className="mt-8 flex flex-col gap-3">
+                    {column.children.map((item, i) => (
+                      <Link
+                        key={i}
+                        href={item.href}
+                        className="text-lg font-medium text-[#5E6282]"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-                <div className="mt-8 flex flex-col gap-3">
-                  {column.children.map((item, i) => (
-                    <Link
-                      key={i}
-                      href={item.href}
-                      className="text-lg font-medium text-[#5E6282]"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
             <div className="mt-5">
-              <div className="flex gap-6">
+              <div className="flex justify-center gap-6 lg:justify-start">
                 <button className="flex size-10 items-center justify-center rounded-full bg-white drop-shadow-lg">
                   <Image
                     src={"/assets/homepage/facebook.svg"}
@@ -763,7 +766,7 @@ export default function Home() {
                   />
                 </button>
               </div>
-              <div className="mt-6 text-xl font-medium text-[#5E6282]">
+              <div className="mt-6 text-center text-xl font-medium text-[#5E6282] lg:text-start">
                 Discover our app
               </div>
               <div className="mt-4 flex gap-2">
@@ -786,7 +789,7 @@ export default function Home() {
             All rights reserved@jadoo.co
           </div>
         </div>
-      </footer> */}
+      </footer>
     </>
   )
 }
