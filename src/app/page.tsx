@@ -653,7 +653,6 @@ export default function Home() {
                     alt=""
                     width={150}
                     height={50}
-                    className="size-auto"
                   />
                 </div>
               )
