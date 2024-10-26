@@ -640,8 +640,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {/* <div>
-          <div className="section-container flex justify-between py-20">
+        <div>
+          <div className="section-container flex flex-wrap justify-center gap-6 py-12 md:py-16 lg:py-20 xl:flex-nowrap xl:justify-between xl:gap-0">
             {["axon", "jetstar", "expedia", "qantas", "alitalia"].map(
               (item, index) => (
                 <div
@@ -660,7 +660,7 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div>
+        {/* <div>
           <div className="section-container py-20">
             <div className="relative flex flex-col items-center rounded-[20px] rounded-ss-[128px] bg-[#DFD7F9]/20 bg-[url('/assets/homepage/mask-1.svg'),_url('/assets/homepage/mask-2.svg')] bg-[position:-15%_100%,100%_0%] bg-no-repeat py-20">
               <p className="text-center text-[33px] font-semibold text-[#5E6282]">
