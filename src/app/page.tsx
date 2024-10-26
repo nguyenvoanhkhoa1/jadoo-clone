@@ -391,17 +391,20 @@ export default function Home() {
                 they west hard for the.
               </p>
               <div className="mt-7 flex gap-8 lg:mt-[34px] lg:gap-11">
-                <button className="h-12 w-[150px] rounded-[10px] bg-[#F1A501] text-base font-medium text-white lg:h-[60px] lg:w-[170px] lg:text-lg">
+                <button className="h-12 w-[150px] rounded-[10px] bg-[#F1A501] text-base font-medium text-white transition-all duration-300 ease-in-out hover:bg-[#c98f11] lg:h-[60px] lg:w-[170px] lg:text-lg">
                   Find out more
                 </button>
                 <button className="flex items-center gap-5 text-base font-medium text-[#686D77] lg:text-[17px]">
-                  <Image
-                    src={"/assets/homepage/play-button.svg"}
-                    alt={""}
-                    width={52}
-                    height={52}
-                    className="size-11 drop-shadow-[0_15px_15px_rgba(223,105,81,0.5)] lg:size-auto"
-                  />
+                  <div className="relative size-11 lg:size-[52px]">
+                    <Image
+                      src={"/assets/homepage/play-button.svg"}
+                      alt={""}
+                      width={52}
+                      height={52}
+                      className="size-full drop-shadow-[0_15px_15px_rgba(223,105,81,0.5)]"
+                    />
+                    <span className="absolute left-0 top-0 inline-flex size-full animate-ping rounded-full bg-[rgba(223,105,81,0.5)] opacity-100"></span>
+                  </div>
                   Play Demo
                 </button>
               </div>
@@ -465,18 +468,22 @@ export default function Home() {
               {TOP_SELLING.map((item, index) => (
                 <div
                   key={index}
-                  className={`col-span-1 overflow-hidden rounded-3xl shadow-lg sm:col-span-2 lg:col-span-1 ${index === 2 ? "col-start-1 sm:col-start-2 lg:col-start-3" : ""} `}
+                  className={`group col-span-1 cursor-pointer overflow-hidden rounded-3xl drop-shadow-md transition-all duration-300 ease-in-out hover:drop-shadow-xl sm:col-span-2 lg:col-span-1 ${index === 2 ? "col-start-1 sm:col-start-2 lg:col-start-3" : ""} `}
                 >
-                  <Image
-                    src={item.thumb}
-                    alt=""
-                    width={400}
-                    height={500}
-                    className="h-[328px] w-full overflow-hidden object-cover object-top"
-                  />
+                  <div className="h-[328px] w-full overflow-hidden">
+                    <Image
+                      src={item.thumb}
+                      alt=""
+                      width={400}
+                      height={500}
+                      className="size-full overflow-hidden object-cover object-top transition-all duration-300 ease-in-out group-hover:scale-125"
+                    />
+                  </div>
                   <div className="bg-white px-5 pb-10 pt-7 font-medium text-[#5E6282]">
                     <div className="flex items-center justify-between">
-                      <span className="text-lg">{item.location}</span>
+                      <span className="text-lg transition-all duration-300 ease-in-out group-hover:text-[#F1A501]">
+                        {item.location}
+                      </span>
                       <span>{item.price}</span>
                     </div>
                     <div className="mt-5 flex gap-3.5">
@@ -593,7 +600,8 @@ export default function Home() {
                       />
                       <span className="tracking-tighter">24 people going</span>
                     </div>
-                    <div className="relative flex items-center px-2">
+                    <div className="group relative flex cursor-pointer items-center p-2">
+                      <span className="absolute left-0 top-0 inline-flex size-full animate-ping rounded-full bg-[#4152CA] opacity-50"></span>
                       <button>
                         <Image
                           src={"/assets/homepage/heart.svg"}
@@ -603,7 +611,7 @@ export default function Home() {
                           className=""
                         />
                       </button>
-                      <div className="absolute bottom-full left-full hidden w-max -translate-x-1/2 items-start gap-3 rounded-[18px] bg-white p-5 drop-shadow-xl md:flex">
+                      <div className="pointer-events-none absolute bottom-0 left-full hidden w-max -translate-x-1/2 items-start gap-3 rounded-[18px] bg-white p-5 opacity-0 drop-shadow-xl transition-all duration-300 ease-in-out group-hover:pointer-events-auto group-hover:bottom-full group-hover:opacity-100 md:flex">
                         <Image
                           src={"/assets/homepage/trip-thumb.png"}
                           alt=""
@@ -774,6 +782,7 @@ export default function Home() {
                 </button>
               </div>
               <button className="absolute right-0 top-0 flex size-[70px] -translate-y-1/4 translate-x-1/4 items-center justify-center rounded-full bg-gradient-to-b from-[#747DEF] to-[#5E3BE1]">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#5E3BE1] opacity-75"></span>
                 <Image
                   src={"/assets/homepage/send-1.svg"}
                   alt={""}
