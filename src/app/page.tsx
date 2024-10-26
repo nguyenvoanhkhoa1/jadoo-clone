@@ -698,7 +698,7 @@ export default function Home() {
                 alt={""}
                 width={153}
                 height={166}
-                className="absolute bottom-[-70px] right-[-99px]"
+                className="absolute bottom-[-70px] right-[-99px] hidden lg:block"
               />
             </div>
           </div>
