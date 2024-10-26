@@ -646,7 +646,7 @@ export default function Home() {
               (item, index) => (
                 <div
                   key={index}
-                  className="flex h-20 cursor-pointer items-center justify-center rounded-xl bg-white px-10 grayscale transition-all duration-300 ease-in-out hover:scale-125 hover:shadow-lg hover:grayscale-0"
+                  className="flex h-20 cursor-pointer items-center justify-center rounded-xl bg-white px-8 grayscale transition-all duration-300 ease-in-out hover:scale-125 hover:shadow-lg hover:grayscale-0"
                 >
                   <Image
                     src={`/assets/homepage/logo-${item}.png`}
@@ -660,15 +660,15 @@ export default function Home() {
             )}
           </div>
         </div>
-        {/* <div>
-          <div className="section-container py-20">
-            <div className="relative flex flex-col items-center rounded-[20px] rounded-ss-[128px] bg-[#DFD7F9]/20 bg-[url('/assets/homepage/mask-1.svg'),_url('/assets/homepage/mask-2.svg')] bg-[position:-15%_100%,100%_0%] bg-no-repeat py-20">
-              <p className="text-center text-[33px] font-semibold text-[#5E6282]">
+        <div>
+          <div className="section-container py-12 md:py-16 lg:py-20">
+            <div className="relative flex flex-col items-center rounded-[20px] rounded-ss-[80px] bg-[#DFD7F9]/20 bg-[url('/assets/homepage/mask-1.svg'),_url('/assets/homepage/mask-2.svg')] bg-[position:-15%_100%,100%_0%] bg-no-repeat px-6 py-12 md:rounded-ss-[128px] md:px-8 md:py-16 lg:py-20">
+              <p className="text-center text-2xl font-semibold text-[#5E6282] md:text-3xl xl:text-[33px]">
                 Subscribe to get information, latest news and other interesting
                 offers about Jadoo
               </p>
-              <div className="mt-[74px] flex gap-6">
-                <div className="relative">
+              <div className="mt-9 flex w-full flex-col items-center gap-6 md:mt-12 md:w-auto md:flex-row lg:mt-[74px]">
+                <div className="relative w-full md:w-auto">
                   <Image
                     src={"assets/homepage/envelop.svg"}
                     alt={""}
@@ -677,7 +677,7 @@ export default function Home() {
                     className="absolute left-6 top-1/2 -translate-y-1/2"
                   />
                   <input
-                    className="h-[68px] w-[420px] rounded-[10px] p-6 ps-16 font-montserrat outline-none transition-all duration-300 ease-in-out placeholder:text-[#39425D] focus:outline-none focus:ring"
+                    className="h-[68px] w-full rounded-[10px] p-6 ps-16 font-montserrat outline-none transition-all duration-300 ease-in-out placeholder:text-[#39425D] focus:outline-none focus:ring md:w-[420px]"
                     placeholder="Your email"
                   />
                 </div>
@@ -702,7 +702,7 @@ export default function Home() {
               />
             </div>
           </div>
-        </div> */}
+        </div>
       </main>
       {/* <footer className="py-20">
         <div className="section-container">
